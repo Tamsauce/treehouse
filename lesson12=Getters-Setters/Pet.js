@@ -18,6 +18,21 @@ class Pet {
             return "sleeping"
         }
     }
+
+    //setters
+    set owner(owner){
+        
+        // this.owner = owner //this naming convention is not allowed for setters 
+        this._owner = owner //instead add an underscore.  This is industry standard 
+        console.log(`setting called: ${owner}`)
+        //to acces this, we need a getter method 
+    }
+
+    get owner(){
+        return this._owner
+        //this isn't the only way to access the setter method 
+    }
+
     //when adding methods inside classes, you dont use the "function" keyword.  The method also is outside of the constructor method 
     speak(){
         console.log(this.sound)
@@ -33,3 +48,6 @@ console.log(gizmo)
 
 // gizmo.speak()
 // zane.speak()
+
+gizmo.owner = "Tami"
+console.log(gizmo.owner)

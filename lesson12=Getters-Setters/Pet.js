@@ -39,6 +39,22 @@ class Pet {
     }
 }
 
+class Owner {
+    constructor(name, address){
+        this.name = name 
+        this.address = address
+    }
+
+    set phoneNumber(phoneNumber){
+        const phoneNormalized = phoneNumber.replace(/[^0-9]/g, "")
+        this._phoneNumber = phoneNormalized
+    }
+
+    get phoneNumber(){
+        return this._phoneNumber
+    }
+}
+
 //create new pets 
 const gizmo = new Pet("dog", 3, "Chichi Mix", "ruff ruff")
 const zane = new Pet("dog", 8, "Border Collie", "woof, woof")
@@ -49,5 +65,8 @@ console.log(gizmo)
 // gizmo.speak()
 // zane.speak()
 
-gizmo.owner = "Tami"
+gizmo.owner = new Owner("Tami", "123 Normal Dr")
+gizmo.owner.phoneNumber = "(555) 123-4567"
 console.log(gizmo.owner)
+console.log(gizmo.owner.name )
+console.log(gizmo.owner.phoneNumber )
